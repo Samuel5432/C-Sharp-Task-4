@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "SquareRoot Page";
+}
+
+<h1>SquareRoot Generator</h1>
+
+@{
+    if (ViewBag.numberOne == null && ViewBag.numberTwo == null)
+    {
+        <div>
+            <p></p>
+        </div>
+    }
+    else if (ViewBag.result < ViewBag.result2)
+    {
+        <div>
+            <p>The number @ViewBag.numberTwo with squareroot @ViewBag.result2 has a higher squareroot than the number @ViewBag.numberOne with @ViewBag.result</p>
+        </div>
+    }
+    else if (ViewBag.result2 < ViewBag.result)
+    {
+        <div>
+            <p>The number @ViewBag.numberOne with squareroot @ViewBag.result has a higher squareroot than the number @ViewBag.numberTwo with @ViewBag.result2</p>
+        </div>
+    }
+    else if (ViewBag.result == ViewBag.result2)
+    {
+        <div>
+            <p>Your number @ViewBag.numberOne and @ViewBag.numberTwo have the same squareroot. Enter another value. </p>
+        </div>
+    }
+}
+
+<div>
+    <form asp-controller="Square" asp-action="Sqrt" method="POST">
+
+        <input type="number" placeholder="First Number" name="firstNumber" />
+        <input type="number" placeholder="Second Number" name="secondNumber" />
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
